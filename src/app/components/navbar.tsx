@@ -22,8 +22,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
-      <nav className="fixed top-[10px] left-[10px] right-[10px] flex items-center px-6 py-4 bg-gradient-to-r from-[#8498FF] to-[#AFFFB5] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25),inset_0px_4px_4px_0px_rgba(255,255,255,.5)] rounded-md">
+    <div className='fixed top-0 left-0 right-0 h-[94px] bg-[#F4F4F4] z-40'>
+      <div className="fixed top-[10px] left-[10px] right-[10px] flex items-center px-6 py-4 bg-gradient-to-r from-[#8498FF] to-[#AFFFB5] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25),inset_0px_4px_4px_0px_rgba(255,255,255,.5)] rounded-md z-50">
         <div className="flex-none w-[200px]">
           <h1 className="text-4xl font-bold text-white">Learnify</h1>
         </div>
@@ -63,8 +63,8 @@ const Navbar = () => {
             )}
           </div>
         </div>
-      </nav>
-    </>
+      </div>
+    </div>
   )
 }
 

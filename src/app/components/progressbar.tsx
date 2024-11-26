@@ -33,7 +33,7 @@ const ProgressBar = () => {
   }, [targetXP]); // Ha változik a targetXP, újra lefut az animáció
 
   return (
-    <div className="fixed top-[84px] left-[10px] right-[10px] bg-gradient-to-r from-[#FFA6F9] to-[#FFA600] rounded-md px-6 py-4 mt-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25),inset_0px_4px_4px_0px_rgba(255,255,255,.5)] h-[10rem]">
+    <div className="mx-[10px] mt-[94px] bg-gradient-to-r from-[#FFA6F9] to-[#FFA600] rounded-md px-6 py-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25),inset_0px_4px_4px_0px_rgba(255,255,255,.5)] h-[10rem]">
       <div className="flex justify-between items-center mb-[2rem]">
         <div className="flex items-center gap-3 translate-y-6">
           <FaTrophy className="text-white text-4xl" />
