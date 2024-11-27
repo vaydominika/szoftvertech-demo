@@ -1,11 +1,14 @@
 "use client"
 import React, { useState, useRef } from 'react'
 import { FaSearch, FaUser, FaBars } from 'react-icons/fa'
+import { CiSquarePlus } from "react-icons/ci";
 import Link from 'next/link'
+import { useModal } from '../components/context/ModalContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { setIsModalOpen } = useModal();
 
   // Add click outside listener
   React.useEffect(() => {
@@ -39,7 +42,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex-none w-[120px] ml-auto flex items-center space-x-4 justify-end">
+        <div className="flex-none w-[160px] ml-auto flex items-center space-x-4 justify-end">
+          <CiSquarePlus 
+            className="w-7 h-7 text-white cursor-pointer hover:text-gray-200"
+            onClick={() => setIsModalOpen(true)}
+          />
           <Link href="/profile">
             <FaUser className="w-6 h-6 text-white cursor-pointer hover:text-gray-200" />
           </Link>
