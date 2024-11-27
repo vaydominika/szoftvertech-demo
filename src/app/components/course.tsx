@@ -1,14 +1,14 @@
 "use client"
 import React, { useState } from 'react'
 import '../styles/range-slider.css';
-import { useModal } from './context/ModalContext';
+import { useCourseModal } from './context/CourseModalContext';
 import { FaStar, FaStarHalf } from 'react-icons/fa';
 import CourseDetailsModal from './CourseDetailsModal';
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 
 const Course = () => {
-  const { isModalOpen, setIsModalOpen } = useModal();
+  const { isCourseModalOpen, setIsCourseModalOpen } = useCourseModal();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [difficultyLevel, setDifficultyLevel] = useState<number>(0);
@@ -158,7 +158,7 @@ const Course = () => {
   });
 
   const handleModalOpen = () => {
-    setIsModalOpen(true);
+    setIsCourseModalOpen(true);
     setTimeout(() => {
       driverObj.drive();
     }, 100);
@@ -166,7 +166,7 @@ const Course = () => {
 
   const handleModalClose = () => {
     driverObj.destroy();
-    setIsModalOpen(false);
+    setIsCourseModalOpen(false);
   };
 
   return (
@@ -236,7 +236,7 @@ const Course = () => {
         ))}
       </div>
 
-      {isModalOpen && (
+      {isCourseModalOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
           onClick={(e) => e.stopPropagation()}

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Yuji_Syuku } from 'next/font/google'
 import { ModalProvider } from './components/context/ModalContext';
+import { CourseModalProvider } from './components/context/CourseModalContext';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,7 +37,9 @@ export default function RootLayout({
         className={`${yujiSyuku.className} antialiased`}
       >
         <ModalProvider>
-          {children}
+          <CourseModalProvider>
+            {children}
+          </CourseModalProvider>
         </ModalProvider>
       </body>
     </html>
