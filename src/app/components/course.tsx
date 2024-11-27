@@ -170,57 +170,26 @@ const Course = () => {
   };
 
   return (
-    <div className="flex flex-wrap gap-6">
-      <div 
-        onClick={handleModalOpen}
-        className="w-[25rem] h-[24rem] rounded-lg bg-gradient-to-tr from-[#8498FF] to-[#AFFFB5] p-1 relative transition-all duration-300 hover:scale-105 cursor-pointer shadow-md left-[10px]"
-      >
-        <div className="h-[21rem] w-full mb-1 relative">
-          <img 
-            src="/thumbnail.jpg"
-            alt="Course thumbnail"
-            className="w-full h-full object-cover rounded-md"
-          />
-          <div className="absolute top-2 left-2 bg-gradient-to-tr from-[#8498FF] to-[#AFFFB5] backdrop-blur-sm rounded-lg p-0.5">
-            <div className="bg-black/20 backdrop-blur-sm px-2 py-1 rounded-md">
-              <div className="flex items-center">
-                <div className="flex">
-                  {renderStars(averageRating)}
-                </div>
-                <span className="ml-2 text-sm text-white">
-                  {averageRating.toFixed(1)} ({numberOfReviews})
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="bg-[#F4F4F4] p-1 rounded-md">
-          <h3 className="text-xl font-semibold">
-            Kurzus létrehozása
-          </h3>
-        </div>
-      </div>
-
-      {exampleCourses.map(course => (
+    <div className="pl-[10px]">
+      <div className="flex flex-wrap gap-6">
         <div 
-          key={course.id}
-          onClick={() => setSelectedCourse(course)}
+          onClick={handleModalOpen}
           className="w-[25rem] h-[24rem] rounded-lg bg-gradient-to-tr from-[#8498FF] to-[#AFFFB5] p-1 relative transition-all duration-300 hover:scale-105 cursor-pointer shadow-md"
         >
-          <div className="h-[21rem] w-full mb-1 relative bg-white rounded-lg">
+          <div className="h-[21rem] w-full mb-1 relative">
             <img 
-              src={course.thumbnail}
-              alt={`${course.title} thumbnail`}
-              className="w-full h-full object-cover rounded-lg"
+              src="/thumbnail.jpg"
+              alt="Course thumbnail"
+              className="w-full h-full object-cover rounded-md"
             />
             <div className="absolute top-2 left-2 bg-gradient-to-tr from-[#8498FF] to-[#AFFFB5] backdrop-blur-sm rounded-lg p-0.5">
               <div className="bg-black/20 backdrop-blur-sm px-2 py-1 rounded-md">
                 <div className="flex items-center">
                   <div className="flex">
-                    {renderStars(course.rating)}
+                    {renderStars(averageRating)}
                   </div>
                   <span className="ml-2 text-sm text-white">
-                    {course.rating.toFixed(1)} ({course.reviews})
+                    {averageRating.toFixed(1)} ({numberOfReviews})
                   </span>
                 </div>
               </div>
@@ -228,11 +197,44 @@ const Course = () => {
           </div>
           <div className="bg-[#F4F4F4] p-1 rounded-md">
             <h3 className="text-xl font-semibold">
-              {course.title}
+              Kurzus létrehozása
             </h3>
           </div>
         </div>
-      ))}
+
+        {exampleCourses.map(course => (
+          <div 
+            key={course.id}
+            onClick={() => setSelectedCourse(course)}
+            className="w-[25rem] h-[24rem] rounded-lg bg-gradient-to-tr from-[#8498FF] to-[#AFFFB5] p-1 relative transition-all duration-300 hover:scale-105 cursor-pointer shadow-md"
+          >
+            <div className="h-[21rem] w-full mb-1 relative bg-white rounded-lg">
+              <img 
+                src={course.thumbnail}
+                alt={`${course.title} thumbnail`}
+                className="w-full h-full object-cover rounded-lg"
+              />
+              <div className="absolute top-2 left-2 bg-gradient-to-tr from-[#8498FF] to-[#AFFFB5] backdrop-blur-sm rounded-lg p-0.5">
+                <div className="bg-black/20 backdrop-blur-sm px-2 py-1 rounded-md">
+                  <div className="flex items-center">
+                    <div className="flex">
+                      {renderStars(course.rating)}
+                    </div>
+                    <span className="ml-2 text-sm text-white">
+                      {course.rating.toFixed(1)} ({course.reviews})
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-[#F4F4F4] p-1 rounded-md">
+              <h3 className="text-xl font-semibold">
+                {course.title}
+              </h3>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {isModalOpen && (
         <div 
